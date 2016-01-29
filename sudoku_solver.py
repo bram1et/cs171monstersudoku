@@ -32,7 +32,7 @@ class SudokuSolver:
 
 
     def get_block_num(self, row, col):
-        return (int(row/self.p) + int(col/self.q)) + (row//self.p)
+        return (int(row/self.p) + int(col/self.q)) + (self.p - 1) * int(row/self.p)
 
     def check_update(self, row_num, column_num, block_num):
         row_check = self.rows[row_num].check_row(row_num)
@@ -81,10 +81,10 @@ class SudokuSolver:
     def get_domain(self):
         domain = []
         for i in range(self.n):
-            if i < 10:
+            if i < 9:
                 domain.append(i + 1)
             else:
-                domain.append(chr((i - 10) + 65))
+                domain.append(chr((i - 9) + 65))
         return domain
 
     def check_board_params(self):
@@ -101,6 +101,7 @@ class SudokuSolver:
                 raise ValueError('Number of columns in board must equal N')
             for cell in row:
                 if cell not in self.domain and cell != 0:
+                    print(self.domain, cell)
                     raise ValueError('Value of a cell is not in domain')
         return True
 
@@ -111,7 +112,9 @@ class SudokuSolver:
             print()
 
     def solve_board(self, start_row=0, start_col=0):
-
+        print()
+        self.print_board()
+        print()
         self.nodes_created += 1
         time_elapsed = time.time() - self.start_time
         if time_elapsed > self.time_out_limit:
