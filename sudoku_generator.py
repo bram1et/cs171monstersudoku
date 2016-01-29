@@ -8,6 +8,7 @@ from sudoku_pieces import Column
 from sudoku_pieces import Block
 from sudoku_pieces import Cell
 from file_reader import FileReader
+from file_writer import FileWriter
 
 class SudokuBoardGenerator:
     def __init__(self, M, N, P, Q):
@@ -106,10 +107,39 @@ class SudokuBoardGenerator:
         for row in self.rows:
             row.print_row()
 
+    def convert_board_to_list(self):
+        board_list = []
+        for row in self.rows:
+            row_list = []
+            for cell in row.cells:
+                row_list.append(cell.value)
+            board_list.append(row_list)
+        return board_list
+
+
+
 if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print('Must specify input file and output file only')
+        quit()
 
-    sudoku_board =  SudokuBoardGenerator(14, 12, 4, 3)
+    else:
+        input_file_str = sys.argv[1]
+        output_file_str = sys.argv[2]
+
+    try:
+        input_file = open(input_file_str, 'r')
+        output_file = open(output_file_str, 'w')
+    except:
+        print('Error opening file')
+        quit()
+
+    fileReader = FileReader(input_file)
+    fileWriter = FileWriter(output_file)
+    M, N, P, Q = fileReader.get_params_generator()
+
+    sudoku_board =  SudokuBoardGenerator(M, N, P, Q)
     sudoku_board.generate_board()
-    sudoku_board.print_board()
-
+    board_as_lists = sudoku_board.convert_board_to_list()
+    fileWriter.write_generated_board_to_file(N, P, Q, board_as_lists)
 

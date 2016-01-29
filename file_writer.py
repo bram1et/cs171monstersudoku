@@ -16,3 +16,9 @@ class FileWriter:
             self.output_file.write("COUNT_NODES=" + str(run_info.count_nodes) + "\n")
             self.output_file.write("COUNT_DEADENDS=" + str(run_info.count_deadends) + "\n")
 
+    def write_generated_board_to_file(self, N, P, Q, board_list):
+        self.output_file.write(str(N) + " " + str(P) + " " + str(Q) + "\n")
+        for row in board_list:
+            for cell in row:
+                self.output_file.write(str(cell)+ " ")
+            self.output_file.write("\n")
