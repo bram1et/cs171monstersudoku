@@ -210,13 +210,13 @@ class Sudoku:
 
     def check_board_params(self):
         if self.n > 35:
-            raise ValueError('Number of tokens cannot excede 35')
+            print('Number of tokens cannot excede 35')
         if self.p <= 0 or self.q <= 0 or self.n <= 0:
             raise ValueError('All values must be greater than 0')
         if self.p * self.q != self.n:
             raise ValueError('N must equal P * Q')
-        if len(board) != self.n:
-            raise ValueError('Number of rows in board must equal N')
+        # if len(board) != self.n:
+        #     raise ValueError('Number of rows in board must equal N')
         for row in self.board_values:
             if len(row) != self.n:
                 raise ValueError('Number of columns in board must equal N')

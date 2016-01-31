@@ -14,19 +14,22 @@ class FileReader:
 			self.P = int(self.P)
 			self.Q = int(self.Q)
 		except:
-			raise ValueError("Starting information provided is incorrect")
+			print("Starting information provided is incorrect. Quiting...")
+			quit()
 
 		return self.N, self.P, self.Q
 
 	def get_board(self):
 		board = []
 		if self.N == -1 or self.P == -1 or self.Q == -1:
-			raise ValueError('Must get parameters first via get_params()')
+			print('Must get parameters first via get_params(). Quitting...')
+			quit()
 		num_rows = self.P * self.Q
 		for row_num in range(num_rows):
 			row_str = self.file.readline().strip()
 			if len(row_str) == 0:
-				raise ValueError("Starting information provided is incorrect")
+				print("Starting information provided is incorrect. Quitting...")
+				quit()
 			row = [int(cell) if cell.isdigit() else cell for cell in row_str.split(' ')]
 			board.append(row)
 		return board
@@ -40,6 +43,7 @@ class FileReader:
 			self.P = int(self.P)
 			self.Q = int(self.Q)
 		except:
-			raise ValueError("Starting information provided is incorrect")
+			print("Starting information provided is incorrect. Quitting...")
+			quit()
 
 		return self.M, self.N, self.P, self.Q

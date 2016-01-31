@@ -15,6 +15,7 @@ if __name__ == '__main__':
     info = RunInfo()
     info.total_start = time.time()
     info.preprocessing_start = time.time()
+    info.preprocessing_done = time.time()
     if(len(sys.argv) != 4):
         print('Only parameters for simple backtracking accepted right now')
         quit()
@@ -33,7 +34,6 @@ if __name__ == '__main__':
     N, P, Q,  = file_reader.get_params()
     board = file_reader.get_board()
     sudoku_board =  SudokuSolver(N, P, Q, board)
-    info.preprocessing_done = time.time()
     info.search_start = time.time()
     sudoku_board.start_time = info.search_start
     sudoku_board.time_out_limit = float(input_info.timeout_limit)

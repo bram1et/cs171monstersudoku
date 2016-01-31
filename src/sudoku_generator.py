@@ -35,13 +35,17 @@ class SudokuBoardGenerator:
 
     def check_board_params(self):
         if self.n > 35:
-            raise ValueError('Number of tokens cannot excede 35')
+            print('Number of tokens cannot excede 35')
+            quit()
         if self.p <= 0 or self.q <= 0 or self.n <= 0:
-            raise ValueError('All values must be greater than 0')
+            print('All values must be greater than 0')
+            quit()
         if self.p * self.q != self.n:
-            raise ValueError('N must equal P * Q')
+            print('N must equal P * Q')
+            quit()
         if self.m > self.n**2:
-            raise ValueError('M must less than N^2')
+            print('M must less than N^2')
+            quit()
 #        if len(board) != self.n:
 #            raise ValueError('Number of rows in board must equal N')
         return True
