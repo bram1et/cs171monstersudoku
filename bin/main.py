@@ -1,11 +1,15 @@
 import sys
+import os
 import time
-import datetime
-from file_reader import FileReader
-from file_writer import FileWriter
-from run_info import RunInfo
-from sudoku_solver import SudokuSolver
-from input_information import InputInformation
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+
+from src.file_reader import FileReader
+from src.file_writer import FileWriter
+from src.run_info import RunInfo
+from src.sudoku_solver import SudokuSolver
+from src.input_information import InputInformation
 
 if __name__ == '__main__':
     info = RunInfo()

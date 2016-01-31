@@ -1,14 +1,16 @@
 #!/usr/bin/python
-import sys
 import copy
 import random
+import sys
 
-from sudoku_pieces import Row
-from sudoku_pieces import Column
+from file_reader import FileReader
 from sudoku_pieces import Block
 from sudoku_pieces import Cell
-from file_reader import FileReader
-from file_writer import FileWriter
+from sudoku_pieces import Column
+from sudoku_pieces import Row
+
+from src.file_writer import FileWriter
+
 
 class SudokuBoardGenerator:
     def __init__(self, M, N, P, Q):

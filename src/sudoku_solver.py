@@ -1,14 +1,13 @@
 from __future__ import print_function
-import sys
+
 import copy
 import time
-import random
 
-from sudoku_pieces import Row
-from sudoku_pieces import Column
-from sudoku_pieces import Block
-from sudoku_pieces import Cell
-from file_reader import FileReader
+from src.sudoku_pieces import Block
+from src.sudoku_pieces import Cell
+from src.sudoku_pieces import Column
+from src.sudoku_pieces import Row
+
 
 class SudokuSolver:
     def __init__(self, N, P, Q, board_values):
