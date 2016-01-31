@@ -35,7 +35,6 @@ class FileReader:
 	def get_params_generator(self):
 		try:
 			self.M, self.N, self.P, self.Q = tuple(self.file.readline().strip().split(' '))
-			print(self.M, self.N, self.P, self.Q)
 			self.M = int(self.M)
 			self.N = int(self.N)
 			self.P = int(self.P)

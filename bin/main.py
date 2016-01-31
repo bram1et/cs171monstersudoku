@@ -41,7 +41,6 @@ if __name__ == '__main__':
     info.search_done = time.time()
     if solved_board is not None:
         if solved_board.solved:
-            solved_board.print_board()
             info.status = info.status_types["s"]
             info.solution = solved_board.board_to_output()
         else:

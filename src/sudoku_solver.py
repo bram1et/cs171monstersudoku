@@ -111,9 +111,9 @@ class SudokuSolver:
             print()
 
     def solve_board(self, start_row=0, start_col=0):
-        print()
-        self.print_board()
-        print()
+        # print()
+        # self.print_board()
+        # print()
         self.nodes_created += 1
         time_elapsed = time.time() - self.start_time
         if time_elapsed > self.time_out_limit:
